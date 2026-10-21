@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import {
-  Activity, ArrowDownRight, ArrowRight, ArrowUpRight, Bell, CalendarClock,
-  Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Cloud, Copy,
-  FileText, Filter, FolderOpen, Gauge, ImagePlus, LayoutDashboard, Link2,
-  ListChecks, Menu, MessageSquareText, MoreHorizontal, Pause, Play, Plus,
-  Search, Send, Settings2, ShieldCheck, Sparkles, Users, WandSparkles, X,
+  Activity, ArrowRight, ArrowUpRight, Bell, CalendarClock,
+  Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Cloud,
+  FileText, Filter, FolderOpen, LayoutDashboard, Link2,
+  ListChecks, Menu, MessageSquareText, MoreHorizontal, Plus,
+  Search, Settings2, ShieldCheck, Sparkles, Users, WandSparkles, X,
   Zap
 } from "lucide-react";
 
