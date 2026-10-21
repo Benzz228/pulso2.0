@@ -29,11 +29,10 @@ const navItems: { label: Page; icon: typeof LayoutDashboard }[] = [
   { label: "Visão geral", icon: LayoutDashboard },
   { label: "Conteúdos", icon: FileText },
   { label: "Grupos", icon: Users },
-  { label: "Publicação em lote", icon: LayersIcon },
+  { label: "Publicação em lote", icon: ListChecks },
   { label: "Automação", icon: CalendarClock },
   { label: "Integrações", icon: Link2 },
 ];
-function LayersIcon(props: ComponentProps<typeof FolderOpen>) { return <ListChecks {...props} />; }
 function load<T,>(key: string, fallback: T): T {
   try { const value = localStorage.getItem(key); return value ? JSON.parse(value) as T : fallback; } catch { return fallback; }
 }
