@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
   Activity, ArrowRight, ArrowUpRight, Bell, CalendarClock,
   Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Cloud,
@@ -44,7 +44,6 @@ export default function App() {
   const [groups, setGroups] = useState<Group[]>(() => load("pulso.groups", initialGroups));
   const [automation, setAutomation] = useState<Automation>(() => load("pulso.automation", { enabled: false, interval: 1, dailyLimit: 8, startHour: "08:00", endHour: "20:00" }));
   const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState<string[]>([]);
   const [caption, setCaption] = useState("");
   const [title, setTitle] = useState("");
   const [newGroup, setNewGroup] = useState("");
