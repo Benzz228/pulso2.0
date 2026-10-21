@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import {
   Activity, ArrowRight, ArrowUpRight, Bell, CalendarClock,
   Check, CheckCircle2, ChevronDown, CircleHelp, Clock3, Cloud,
@@ -32,7 +33,7 @@ const navItems: { label: Page; icon: typeof LayoutDashboard }[] = [
   { label: "Automação", icon: CalendarClock },
   { label: "Integrações", icon: Link2 },
 ];
-function LayersIcon(props: React.ComponentProps<typeof FolderOpen>) { return <ListChecks {...props} />; }
+function LayersIcon(props: ComponentProps<typeof FolderOpen>) { return <ListChecks {...props} />; }
 function load<T,>(key: string, fallback: T): T {
   try { const value = localStorage.getItem(key); return value ? JSON.parse(value) as T : fallback; } catch { return fallback; }
 }
@@ -137,14 +138,14 @@ export default function App() {
   </div>;
 }
 
-function PageHeading({ eyebrow, title, description, action }: { eyebrow: string; title: string; description: string; action?: React.ReactNode }) {
+function PageHeading({ eyebrow, title, description, action }: { eyebrow: string; title: string; description: string; action?: ReactNode }) {
   return <div className="page-heading"><div><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{description}</p></div>{action && <div className="heading-action">{action}</div>}</div>;
 }
 function Status({ status }: { status: PostStatus }) {
   const cls = status === "Publicado" ? "status-published" : status === "Na fila" ? "status-queued" : status === "Pronto" ? "status-ready" : "status-draft";
   return <span className={`status-badge ${cls}`}><i/>{status}</span>;
 }
-function Empty({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+function Empty({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
   return <div className="empty-state"><div>{icon}</div><h3>{title}</h3><p>{text}</p></div>;
 }
 function Dashboard({ posts, groups, readyCount, automation, setPage, onNew }: { posts: Post[]; groups: Group[]; readyCount: number; automation: Automation; setPage: (page: Page) => void; onNew: () => void }) {
@@ -158,6 +159,6 @@ function Dashboard({ posts, groups, readyCount, automation, setPage, onNew }: { 
     <div className="bottom-tip"><div className="tip-icon"><WandSparkles size={19}/></div><div><strong>Uma boa rotina começa com organização.</strong><p>Prepara conteúdos e destinos agora. Quando a integração estiver pronta, o Pulso poderá encaminhar as tarefas autorizadas.</p></div><button className="text-action" onClick={() => setPage("Grupos")}>Organizar destinos <ArrowRight size={14}/></button></div>
   </section>;
 }
-function Metric({ icon, label, value, change, tone }: { icon: React.ReactNode; label: string; value: string; change: string; tone: string }) {
+function Metric({ icon, label, value, change, tone }: { icon: ReactNode; label: string; value: string; change: string; tone: string }) {
   return <div className="metric-card"><div className={`metric-icon ${tone}`}>{icon}</div><div className="metric-label">{label}</div><div className="metric-value">{value}</div><div className="metric-change"><span className={tone === "green" ? "change-positive" : ""}>{change}</span></div></div>;
 }
